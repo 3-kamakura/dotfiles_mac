@@ -1,0 +1,23 @@
+# escapeキーの設定
+escape ^Ss
+# 現在のユーザーで用いているSHELLをscreenでも利用
+shell -$SHELL
+# スタートアップメッセージを表示しない
+startup_message off
+# 警告オフ
+vbell off
+# 画面スクロールの上限10000行
+defscrollback 10000
+
+# 最終行にwindow一覧を表示
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+
+# screen起動時に勝手にwindowサイズが変わるのを防ぐ
+termcapinfo  xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+
+## http://frexx.de/xterm-256-notes/
+## erase background with current bg color
+defbce "on"
+# do not use 'screen-bce'
+term xterm-256color
+termcapinfo xterm* ti@:te@
